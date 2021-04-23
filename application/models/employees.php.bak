@@ -1,0 +1,243 @@
+
+<?php
+//defined('BASEPATH') OR exit('No direct script access allowed');
+
+class employees extends CI_Model {
+	public function portfolios($data){
+		$this->db->insert('portfolio',$data);
+	}
+
+	public function insert($data,$data2,$data3,$data4,$tables) {
+		
+		$this->db->insert('persons',$data);
+		$insert_id=$this->db->insert_id();
+		
+		$data2=array(
+			'state_id'=>$this->input->post('state_id'),
+			'city_id'=>$this->input->post('city'),
+			'emp_id'=>$insert_id);
+		$this->db->insert('emp_state_city',$data2);
+		$data3=array(
+			'department'=>$this->input->post('dept_id'),
+			'user_id'=>$insert_id);
+		$this->db->insert('emp_department',$data3);
+		$data4=array(
+			'adress'=>$this->input->post('adress'),
+			'pincode'=>$this->input->post('pincode'),
+			'user_id'=>$insert_id);
+		$this->db->insert('adress',$data4);
+		$tables=array(
+			'joining_date'=>$this->input->post('joining_date'),
+			'project'=>$this->input->post('project'),
+			'project_start_date'=>$this->input->post('project_start_date'),
+			'project_end_date'=>$this->input->post('project_end_date'),
+			'user_id'=>$insert_id
+			);
+		$this->db->insert('joining_employee',$tables);
+		return true;
+	}
+	public function leaves($data){
+		$this->db->insert('emp_leave',$data);
+		return true;
+	}
+	public function statusleave_changes($id,$leave_approve){
+		$this->db->where('emp_id',$id);
+		$this->db->update('emp_leave',$leave_approve);
+		return true;
+	}
+	public function employee_leaves(){
+		$this->db->select('leaves.id,leaves.leaves,emp_leave.leave,emp_leave.name,emp_leave.email,
+		emp_leave.phone,emp_leave.leave_start_date,emp_leave.leave_end_date,emp_leave.leave_approve,leaves.leaves,emp_leave.emp_id');
+		$this->db->from('emp_leave');
+		$this->db->join('leaves','leaves.id=emp_leave.leave');
+		$query=$this->db->get();
+		$vals2=$query->result_array();
+		$leave_approve =$vals2[0]['leave_approve'];
+		$leave_start_date =$vals2[0]['leave_start_date'];
+		$leave_end_date =$vals2[0]['leave_end_date'];
+		$this->session->set_userdata('leave_approve',$leave_approve);
+		$this->session->set_userdata('leave_start_date',$leave_start_date);
+		$this->session->set_userdata('leave_end_date',$leave_end_date);
+		return $query->result_array();
+	}
+	public function deletes($id){
+		$this->db->where('id',$id);
+   		$this->db->delete('contact');
+   		return true;
+	}
+	public function leave(){
+		$this->db->select('leaves,id');
+		$this->db->from('leaves');
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+public function deletes_datas($id){
+	$query=$this->db->where('carrers.id',$id)->get('carrers')->row();
+	$result=$query->cv;
+	$path = $_SERVER['DOCUMENT_ROOT'].'/employeeregistrationscookie/image/'.$result ;
+   	unlink($path);
+   	$this->db->delete('carrers', array('carrers.id'=>$id));
+   	$this->db->delete('carrer_qualification_exp', array('carrer_qualification_exp.carrer_id'=>$id));
+ }
+public function state() {
+	$query=$this->db->select('state_id,state_name')->get('state');
+	return $query->result_array();
+}
+public  function fetches(){
+   $query= $this->db->get('department');
+	return $query->result_array();
+	//echo print_r($value);
+ }
+ public function leave_deletes($id){
+ 	$this->db->where('emp_id',$id);
+ 	$this->db->delete('emp_leave');
+ 	return true;
+ }
+public function city($state_id) {
+	$this->db->where('state_id',$state_id);
+	$this->db->order_by('city_name','ASC');
+	$query=$this->db->get('city');
+	$output .='<option value="">--select ciy--</option>';
+	$record= $query->result_array();
+	foreach($record as $val){
+	$output .='<option value="'.$val['city_id'].'">'.$val['city_name'].'
+	</option>';
+	}
+	return $output;
+}
+public function delete_data($id) {
+	$query=$this->db->where('persons.id',$id)->get('persons')->row();
+	$result=$query->image;
+	$path = $_SERVER['DOCUMENT_ROOT'].'/employeeregistrationscookie/upload/'.$result ;
+   	unlink($path);
+   	$this->db->delete('persons', array('persons.id'=>$id));
+   	$this->db->delete('adress', array('adress.user_id'=>$id));
+   	$this->db->delete('emp_department', array('emp_department.user_id'=>$id));
+   	$this->db->delete('emp_state_city', array('emp_state_city.emp_id'=>$id));
+	$this->db->delete('joining_employee', array('joining_employee.user_id'=>$id));
+}
+public function deletes_data($id) {
+	$query=$this->db->where('persons.id',$id)->get('persons')->row();
+	$result=$query->image;
+	$path = $_SERVER['DOCUMENT_ROOT'].'/employeeregistrationscookie/upload/'.$result ;
+   	unlink($path);
+   	$this->db->delete('persons', array('persons.id'=>$id));
+   	$this->db->delete('adress', array('adress.user_id'=>$id));
+   	$this->db->delete('emp_department', array('emp_department.user_id'=>$id));
+   	$this->db->delete('emp_state_city', array('emp_state_city.emp_id'=>$id));
+	$this->db->delete('joining_employee', array('joining_employee.user_id'=>$id));
+}
+public function records($id) {
+	$this->db->where('id',$id);
+	$query= $this->db->get('persons');
+	return $query;
+}
+public function update($id,$table,$image){
+	if($_FILES['image']['name']!=''){
+		$query=$this->db->where('id',$id)->get('persons')->row();
+			$result=$query->image;
+			$path = $_SERVER['DOCUMENT_ROOT'].'/employeeregistrationscookie/upload/'.$result ;
+   			unlink($path);
+   			$this->db->set('image',$image);
+   			$this->db->where('id',$id);
+   			$this->db->update('persons',$table);
+   			return true;
+   	} else {
+   			$this->db->where('id',$id);
+   			$this->db->update('persons',$table);
+   			return true;
+   	}
+}
+public function updates($id,$table){
+	
+   		$this->db->where('user_id',$id);
+   		$this->db->update('adress',$table);
+ }
+public function update_id($id,$table,$image){
+	if($_FILES['image']['name']!=''){
+		$query=$this->db->where('id',$id)->get('persons')->row();
+			$result=$query->image;
+			$path = $_SERVER['DOCUMENT_ROOT'].'/employeeregistrationscookie/upload/'.$result ;
+   			unlink($path);
+   			$this->db->set('image',$image);
+   			$this->db->where('id',$id);
+   			$this->db->update('persons',$table);
+   			return true;
+   	} else {
+   			$this->db->where('id',$id);
+   			$this->db->update('persons',$table);
+   			return true;
+   	}
+}
+public function updates_id($id,$table){
+			$this->db->where('user_id',$id);
+   			$this->db->update('emp_department',$table);
+   			return true;
+}
+public function update_status($id,$table){
+			$this->db->where('id',$id);
+   			$this->db->update('persons',$table);
+   			return true;
+}
+public function data_id($id,$data){
+		$this->db->where('user_id',$id);
+   		$this->db->update('joining_employee',$data);
+   		return true;
+}
+public function get_count(){
+	return $this->db->count_all("persons");
+}
+
+public function  get_persons(){
+	$this->db->select('persons.id,persons.username,
+	persons.phone,persons.name,persons.salary,
+	persons.gender,persons.status,emp_state_city.city_id,state.state_name,city.city_name,persons.image,state.state_id,city.city_id,
+	adress.adress,adress.pincode,department.dept_name,department.dept_id,joining_employee.project_start_date,joining_employee.joining_date,joining_employee.project,joining_employee.project_end_date');
+	$this->db->from('persons');
+   	$this->db->join('emp_state_city','emp_state_city.emp_id =persons.id');
+   $this->db->join('emp_department','emp_department.user_id =persons.id');
+   $this->db->join('state','state.state_id=emp_state_city.state_id');
+   $this->db->join('city','city.city_id=emp_state_city.city_id');
+   $this->db->join('adress','adress.user_id=persons.id');
+   $this->db->join('department','department.dept_id=emp_department.department');
+  	$this->db->join('joining_employee','joining_employee.user_id=persons.id');
+ 	$query =$this->db->get();
+	return $query->result_array();
+}
+public function can_login($username,$password) {
+	$this->db->select('*');
+	$this->db->where('username',$username);
+	$this->db->where('password',$password);
+	$this->db->where('status',1);
+	$this->db->where('user_type','admin');
+	$query=$this->db->get('create_members'); 
+	$result= $query->num_rows();
+	if($result == 0){
+		return False;
+	}
+	else {
+	$data = $query->result_array();
+	$id= $data[0]['id'];
+	$username= $data[0]['username'];
+	$mobile= $data[0]['mobile'];
+	$password =$data[0]['password'];
+	$name =$data[0]['name'];
+	$user_type = $data[0]['user_type'];
+	$this->session->set_userdata('admin_id',$id);
+	$this->session->set_userdata('admin_username',$username);
+	$this->session->set_userdata('admin_mobile',$mobile);
+	$this->session->set_userdata('admin_password',$password);
+	$this->session->set_userdata('admin_name',$name);
+	$this->session->set_userdata('admin_user_type',$user_type);
+	$this->session->set_userdata('is_logged_in',TRUE);
+	return True;
+}
+}
+public  function fetch_single_user($id){
+    $this->db->where('id',$id);
+	$query= $this->db->get('persons');
+	return $query->result();
+	//echo print_r($value);
+}
+}
+?>

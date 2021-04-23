@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper -->
+<html lang="en" class="wf-usual-n4-active wf-usual-i7-active wf-usual-n7-active wf-usual-i4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			
+
+			
+			
+				<script type="text/javascript" async="" src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/recaptcha__en.js.download"></script><script async="" src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/analytics.js.download"></script><script>
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+					ga('create', 'UA-12953034-3', 'auto');
+					ga('send', 'pageview');
+				</script>
+			
+
+			<!-- WebSite Schema props -->
+			<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "WebSite",
+				"url": "https://expressionengine.com/",
+				"alternateName": "eecms"
+			}
+			</script>
+
+			<!-- title after content-type or UTF-8 characters will render incorrectly in page titles -->
+			<title>How to download a file in codeigniter using download helper? | General Discussion | ExpressionEngine</title>
+			
+			<link rel="canonical" href="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper">
+			
+
+			<meta name="viewport" content="initial-scale=1">
+			<!-- meta data -->
+			<meta name="author" content="EllisLab, https://ellislab.com/">
+			<meta name="description" content="Chat with fellow EECMS users in the &#39;How to download a file in codeigniter using download helper?&#39; ExpressionEngine community discussion forum thread.">
+			<!-- open graph common -->
+			<meta property="fb:app_id" content="227017931585348">
+			<meta property="og:site_name" content="ExpressionEngine">
+			
+			<meta property="og:image" content=""> <!-- square, 50*50 min -->
+			
+			
+			<!-- open graph per page -->
+			<meta property="og:title" content="How to download a file in codeigniter using download helper? | General Discussion">
+			<meta property="og:url" content="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper">
+			<meta property="og:description" content="Chat with fellow EECMS users in the &#39;How to download a file in codeigniter using download helper?&#39; ExpressionEngine community discussion forum thread.">
+
+			
+
+			<!-- favicon -->
+			<link href="https://expressionengine.com/asset/img/seo/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+			<!-- web clip icons -->
+			<!-- iPhone OLD -->
+			<link href="https://expressionengine.com/asset/img/seo/apple-touch-icon-60x60-precomposed.png" sizes="60x60" rel="apple-touch-icon-precomposed">
+			<!-- iPhone 5, 5s -->
+			<link href="https://expressionengine.com/asset/img/seo/apple-touch-icon-76x76-precomposed.png" sizes="76x76" rel="apple-touch-icon-precomposed">
+			<!-- iPhone 6, 6s, SE -->
+			<link href="https://expressionengine.com/asset/img/seo/apple-touch-icon-120x120-precomposed.png" sizes="120x120" rel="apple-touch-icon-precomposed">
+			<!-- iPad, iPad mini -->
+			<link href="https://expressionengine.com/asset/img/seo/apple-touch-icon-152x152-precomposed.png" sizes="152x152" rel="apple-touch-icon-precomposed">
+			<!-- iPad Pro -->
+			<link href="https://expressionengine.com/asset/img/seo/apple-touch-icon-167x167-precomposed.png" sizes="167x167" rel="apple-touch-icon-precomposed">
+			<!-- iPhone 6 Plus, 6s Plus -->
+			<link href="https://expressionengine.com/asset/img/seo/apple-touch-icon-180x180-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+
+			<!-- safari pin -->
+			<link href="https://expressionengine.com/asset/img/seo/ee-logo.svg" color="#FFFFFF" rel="mask-icon">
+
+			<link href="https://expressionengine.com/forums/archive/topic/229903/robots.txt" title="robots" type="text/plain" rel="help">
+			
+			<link href="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/default.min.css" title="common-styles" type="text/css" rel="stylesheet">
+
+			<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/jqv4zpf.js.download"></script>
+			<style type="text/css">.tk-usual{font-family:"usual",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-usual-n4;src:url(https://use.typekit.net/af/4e8f1c/00000000000000000001771b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/4e8f1c/00000000000000000001771b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/4e8f1c/00000000000000000001771b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-usual-i4;src:url(https://use.typekit.net/af/a20d40/000000000000000000017720/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/a20d40/000000000000000000017720/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/a20d40/000000000000000000017720/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;}@font-face{font-family:tk-usual-i7;src:url(https://use.typekit.net/af/84cfc3/000000000000000000017723/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/84cfc3/000000000000000000017723/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/84cfc3/000000000000000000017723/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:tk-usual-n7;src:url(https://use.typekit.net/af/625a3c/000000000000000000017724/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/625a3c/000000000000000000017724/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/625a3c/000000000000000000017724/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}</style><script>try{Typekit.load({ async: true });}catch(e){}</script>
+			<link href="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/css" rel="stylesheet"><style type="text/css">@font-face{font-family:usual;src:url(https://use.typekit.net/af/4e8f1c/00000000000000000001771b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/4e8f1c/00000000000000000001771b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/4e8f1c/00000000000000000001771b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:usual;src:url(https://use.typekit.net/af/a20d40/000000000000000000017720/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/a20d40/000000000000000000017720/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/a20d40/000000000000000000017720/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;}@font-face{font-family:usual;src:url(https://use.typekit.net/af/84cfc3/000000000000000000017723/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/84cfc3/000000000000000000017723/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/84cfc3/000000000000000000017723/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:usual;src:url(https://use.typekit.net/af/625a3c/000000000000000000017724/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/625a3c/000000000000000000017724/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/625a3c/000000000000000000017724/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}</style>
+			
+		</head>
+		<body id="top">
+
+			
+				<form id="cookieConsentForm" method="post" action="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper">
+<div class="hiddenFields">
+<input type="hidden" name="ACT" value="275">
+<input type="hidden" name="RET" value="zHkcNjsWlLoolQvZVgeehHffuk4kezPWMj92CDroje8=">
+<input type="hidden" name="consent_names" value="vaZdswkypyGiG4qY+AVg4fKQ0HRKuKVzDgrj4CXPVmXQ6Egon9VjV6pi1Hyl9BP+54ldvIK8m0UmlA0acQGmTVq4G43I9BXd6ak59T3dfXOvWZFhKP5G0vYQe5hYPvHr">
+<input type="hidden" name="site_id" value="5">
+<input type="hidden" name="csrf_token" value="276a92a7267217cffe00cd6c05309e2f30a09585">
+</div>
+
+
+					<div class="notice notice--consent">
+						<div class="notice__badge">
+							<span class="icons icons--alert"></span>
+						</div>
+						<div class="notice__content">
+
+							
+								<input type="hidden" name="ee:cookies_functionality" value="y">
+							
+								<input type="hidden" name="ee:cookies_performance" value="y">
+							
+								<input type="hidden" name="ee:cookies_targeting" value="y">
+							
+
+							<p>We use cookies to help make our site work properly and to analyze how our site is used. Some are optional, but none contain your personal information, and we don't use any for ads. You can view our <a href="https://expressionengine.com/about/cookie-policy" title="Cookies Policy" rel="external">cookies policy</a>, manage your <a href="https://expressionengine.com/account/cookie-preferences">cookie preferences</a>, or consent and dismiss this banner by clicking agree:</p>
+						</div>
+						<div class="notice__actions">
+							<a href="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper" class="btn action">Agree</a>
+						</div>
+					</div>
+				</form>
+			
+
+			
+
+<style>
+.site-nav {
+	background-color: #321345;
+}
+
+@media screen and (min-width: 1230px) {
+.site-nav-submenu .site-nav__item, .site-nav__item {
+	color: #fff !important;
+	font-weight: 400 !important;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol" !important;
+}
+}
+
+.site-nav-logo {
+	background-image: url("https://expressionengine.com/assets/images/ee-logo-white.svg");
+}
+
+
+@media screen and (min-width: 1230px) {
+	.site-nav {
+		padding: 32px 80px;
+	}
+}
+</style>
+
+<div class="site-nav">
+	<nav class="site-nav-main">
+		<a href="https://expressionengine.com/" class="site-nav-logo"></a>
+		<a class="site-nav__item site-nav__item--mobile js-menu-toggle" rel="site-subnav" href="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper#">
+			<span class="icons icons--menu"></span>
+			<span class="txt--response">Menu</span>
+		</a>
+		<div class="site-nav-submenu" rev="site-subnav">
+			
+
+			<a class="site-nav__item " href="https://expressionengine.com/features">Features</a>
+			<a class="site-nav__item " href="https://expressionengine.com/support">Support</a>
+			<a class="site-nav__item " href="https://expressionengine.com/partners">Find a Developer</a>
+			<a class="site-nav__item " href="https://expressionengine.com/hosting">Hosting</a>
+			<a class="site-nav__item " href="https://expressionengine.com/add-ons">Add-ons</a>
+			<a class="site-nav__item  ?&gt;" href="https://docs.expressionengine.com/">Docs</a>
+
+		</div>
+		
+	</nav>
+	<nav class="site-nav-user">
+		
+			<div class="site-nav__item">
+				Hi!
+				<a class="sign-in modal-link" rel="login" href="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper">sign in</a> or
+				<a class="modal-link" href="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper#" rel="register">register</a>
+			</div>
+		
+		
+	</nav>
+</div>
+
+
+			<section class="site-content">
+				
+				
+					<div class="c-banner c-banner--interior">
+	<div class="c-banner__text">
+		<div class="c-banner__head">ExpressionEngine&nbsp;<b>CMS</b></div>
+		<div class="c-banner__tagline">Open, Free, Amazing</div>
+	</div>
+	<div class="c-banner__sponsors">
+		<div class="c-banner__badge">Brought to you by</div>
+		<div class="c-banner__logos">
+			<div class="c-banner__logo">
+				<a href="https://www.nexcess.net/expressionengine/" rel="external"><img src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/logo-nexcess.png" alt="Nexcess logo" width="265px"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+				
+				
+					<section class="row has-crumbs">
+						<section class="w-16">
+
+							<ul class="crumbs">
+								<li><a href="https://expressionengine.com/">Home</a></li>
+								
+			<li><a href="https://expressionengine.com/forums">Forums</a></li>
+			<li><a href="https://expressionengine.com/forums/archive">Archive</a></li>
+			<li><a href="https://expressionengine.com/forums/archive/topics/49/general-discussion">General Discussion</a></li>
+		
+							</ul>
+							<h1 class="u-margin-bottom">Thread</h1>
+
+							<script type="application/ld+json">
+							{
+								"@context": "http://schema.org",
+								"@type": "BreadcrumbList",
+								"itemListElement": [
+									{
+										"@type": "ListItem",
+										"position": 1,
+										"item": {
+											"@id": "https://expressionengine.com/",
+											"name": "Home"
+										}
+									}
+									
+								]
+							}
+							</script>
+
+							
+
+<div class="alert warn last">
+    <div class="alert-content">
+        <p>This is an archived forum and the content is probably no longer relevant, but is provided here for posterity.</p>
+        <p>The active forums are <a href="https://expressionengine.com/forums">here</a>.</p>
+    </div>
+</div>
+
+
+							
+
+							
+
+						</section>
+					</section>
+				
+
+				
+
+
+
+
+
+
+
+	
+
+	
+
+	
+		
+		
+		
+		
+
+		
+
+		<div class="section-header">
+			<section class="row">
+				<section class="w-16">
+					<h2>How to download a file in codeigniter using download helper?</h2>
+					<p>November 19, 2012 1:42am <span id="change_status"></span></p>
+					
+						<a class="btn action" href="https://expressionengine.com/?ACT=263&amp;return=forums%2Farchive%2Ftopic%2F229903%2Fhow-to-download-a-file-in-codeigniter-using-download-helper&amp;token=276a92a7267217cffe00cd6c05309e2f30a09585">Subscribe [2]</a>
+					
+				</section>
+			</section>
+		</div>
+
+		<section class="row">
+			<section class="w-16">
+
+				
+
+				<div class="forums thread">
+					<div class="actions">
+						
+
+
+
+					</div>
+					<div class="item-list">
+						<ul>
+	
+							<li>
+								<div class="thread-actions">
+									<p>
+										
+											<a href="https://expressionengine.com/forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper">#1</a> /
+										
+										Nov 19, 2012 1:42am
+										
+								</p></div>
+								<div class="post">
+									
+
+<div class="author-info">
+	
+	<h2><a href="https://expressionengine.com/member/352581">Sandip Ray</a></h2>
+	<span class="meta">
+		<b>7</b> posts<br>
+		<br>
+		
+		
+	</span>
+</div>
+
+									<div class="content">
+										<p>Download a file  </p>
+
+<p>&nbsp;  &nbsp; Hi, I need a php code <b><span style="color:blue;">to download a file</span></b> from a website and <span style="color:green;"><b>before downloading,it should give me an option to browse and select the location to put the file</b></span>. Thanks in advance.Sandip Ray</p>
+
+<p>N.B. : Totally new in PHP &amp; CodeIgniter.Pls help.</p>
+									</div>
+								</div>
+								
+								
+
+								<div class="actions">
+									
+
+									
+
+									
+								</div>
+							</li>
+
+	
+
+	
+
+	
+
+	
+							<li id="1041763">
+								<div class="thread-actions">
+									<p>
+										
+											<a href="https://expressionengine.com/?ACT=265&amp;reply=zgJ%2F9DcQPShTHf5Y4HW%2F9HD8qbz8OfSd6QprzJyTR8zwN55x5RNyRy0KH92YTCt0Eun7tBKWmagZvAE5FuChnShGpMCzzO2U17zUmYGmWoF2s9ms4CP92%2B2eYuUZXBUS&amp;return=gbS666kEiH%2BddS6G3NhN6L3ILAF8%2BnJmDeq7ttfvEsiTYbBNE51vCDap4He7D17G">#2</a> /
+										
+										Nov 19, 2012 11:20pm
+										
+								</p></div>
+								<div class="post">
+									
+
+<div class="author-info">
+	
+	<h2><a href="https://expressionengine.com/member/227680">makoa</a></h2>
+	<span class="meta">
+		<b>1</b> posts<br>
+		<br>
+		
+		
+	</span>
+</div>
+
+									<div class="content">
+										<p>You can use download_helper :</p><div class="codeblock"><pre><code class="hljs html"><span class="php"><span class="hljs-meta">&lt;?php</span>  <span class="hljs-keyword">if</span> ( ! defined(<span class="hljs-string">'BASEPATH'</span>)) <span class="hljs-keyword">exit</span>(<span class="hljs-string">'No direct script access allowed'</span>);
+<span class="hljs-comment">/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 4.3.2 or newer
+ *
+ * <span class="hljs-doctag">@package</span>  CodeIgniter
+ * <span class="hljs-doctag">@author</span>  ExpressionEngine Dev Team
+ * <span class="hljs-doctag">@copyright</span> Copyright (c) 2008 - 2010, EllisLab, Inc.
+ * <span class="hljs-doctag">@license</span>  &lt;a href="http://ellislab.com/codeigniter/user-guide/license.html"&gt;http://ellislab.com/codeigniter/user-guide/license.html&lt;/a&gt;
+ * <span class="hljs-doctag">@link</span>  &lt;a href="http://codeigniter.com"&gt;http://codeigniter.com&lt;/a&gt;
+ * <span class="hljs-doctag">@since</span>  Version 1.0
+ * <span class="hljs-doctag">@filesource</span>
+ */</span>
+
+<span class="hljs-comment">// ------------------------------------------------------------------------</span>
+
+<span class="hljs-comment">/**
+ * CodeIgniter Download Helpers
+ *
+ * <span class="hljs-doctag">@package</span>  CodeIgniter
+ * <span class="hljs-doctag">@subpackage</span> Helpers
+ * <span class="hljs-doctag">@category</span> Helpers
+ * <span class="hljs-doctag">@author</span>  ExpressionEngine Dev Team
+ * <span class="hljs-doctag">@link</span>  &lt;a href="http://ellislab.com/codeigniter/user-guide/helpers/download_helper.html"&gt;http://ellislab.com/codeigniter/user-guide/helpers/download_helper.html&lt;/a&gt;
+ */</span>
+
+<span class="hljs-comment">// ------------------------------------------------------------------------</span>
+
+<span class="hljs-comment">/**
+ * Force Download
+ *
+ * Generates headers that force a download to happen
+ *
+ * <span class="hljs-doctag">@access</span> public
+ * <span class="hljs-doctag">@param</span> string filename
+ * <span class="hljs-doctag">@param</span> mixed the data to be downloaded
+ * <span class="hljs-doctag">@return</span> void
+ */</span> 
+<span class="hljs-keyword">if</span> ( ! function_exists(<span class="hljs-string">'force_download'</span>))
+{
+ <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">force_download</span><span class="hljs-params">($filename = <span class="hljs-string">''</span>, $data = <span class="hljs-string">''</span>)</span>
+ </span>{
+  <span class="hljs-keyword">if</span> ($filename == <span class="hljs-string">''</span> <span class="hljs-keyword">OR</span> $data == <span class="hljs-string">''</span>)
+  {
+   <span class="hljs-keyword">return</span> <span class="hljs-keyword">FALSE</span>;
+  }
+
+  <span class="hljs-comment">// Try to determine if the filename includes a file extension.</span>
+  <span class="hljs-comment">// We need it in order to set the MIME type</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">FALSE</span> === strpos($filename, <span class="hljs-string">'.'</span>))
+  {
+   <span class="hljs-keyword">return</span> <span class="hljs-keyword">FALSE</span>;
+  }
+ 
+  <span class="hljs-comment">// Grab the file extension</span>
+  $x = explode(<span class="hljs-string">'.'</span>, $filename);
+  $extension = end($x);
+
+  <span class="hljs-comment">// Load the mime types</span>
+  @<span class="hljs-keyword">include</span>(APPPATH.<span class="hljs-string">'config/mimes'</span>.EXT);
+ 
+  <span class="hljs-comment">// Set a default mime if we can't find it</span>
+  <span class="hljs-keyword">if</span> ( ! <span class="hljs-keyword">isset</span>($mimes[$extension]))
+  {
+   $mime = <span class="hljs-string">'application/octet-stream'</span>;
+  }
+  <span class="hljs-keyword">else</span>
+  {
+   $mime = (is_array($mimes[$extension])) ? $mimes[$extension][<span class="hljs-number">0</span>] : $mimes[$extension];
+  }
+ 
+  <span class="hljs-comment">// Generate the server headers</span>
+  <span class="hljs-keyword">if</span> (strstr($_SERVER[<span class="hljs-string">'HTTP_USER_AGENT'</span>], <span class="hljs-string">"MSIE"</span>))
+  {
+   header(<span class="hljs-string">'Content-Type: "'</span>.$mime.<span class="hljs-string">'"'</span>);
+   header(<span class="hljs-string">'Content-Disposition: attachment; filename="'</span>.$filename.<span class="hljs-string">'"'</span>);
+   header(<span class="hljs-string">'Expires: 0'</span>);
+   header(<span class="hljs-string">'Cache-Control: must-revalidate, post-check=0, pre-check=0'</span>);
+   header(<span class="hljs-string">"Content-Transfer-Encoding: binary"</span>);
+   header(<span class="hljs-string">'Pragma: public'</span>);
+   header(<span class="hljs-string">"Content-Length: "</span>.strlen($data));
+  }
+  <span class="hljs-keyword">else</span>
+  {
+   header(<span class="hljs-string">'Content-Type: "'</span>.$mime.<span class="hljs-string">'"'</span>);
+   header(<span class="hljs-string">'Content-Disposition: attachment; filename="'</span>.$filename.<span class="hljs-string">'"'</span>);
+   header(<span class="hljs-string">"Content-Transfer-Encoding: binary"</span>);
+   header(<span class="hljs-string">'Expires: 0'</span>);
+   header(<span class="hljs-string">'Pragma: no-cache'</span>);
+   header(<span class="hljs-string">"Content-Length: "</span>.strlen($data));
+  }
+ 
+  <span class="hljs-keyword">exit</span>($data);
+ }
+}
+
+
+<span class="hljs-comment">/* End of file download_helper.php */</span>
+<span class="hljs-comment">/* Location: ./system/helpers/download_helper.php */</span></span></code></pre></div>
+
+<p>In the controller :</p><div class="codeblock"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">donwload</span><span class="hljs-params">()</span></span>{
+<span class="hljs-keyword">$this</span>-&gt;load-&gt;helper(<span class="hljs-string">'download'</span>);
+$data = file_get_contents(<span class="hljs-string">'path/file.xls'</span>);
+force_download(<span class="hljs-string">'file.xls'</span>, $data);
+}</code></pre></div>
+
+<p>Hoping to help you</p>
+									</div>
+								</div>
+								
+								
+
+								<div class="actions">
+									
+
+									
+
+									
+								</div>
+							</li>
+
+	
+
+						</ul>
+					</div>
+					<div class="actions">
+						
+
+
+
+					</div>
+				</div>
+			</section>
+		</section>
+
+
+	
+
+
+
+				
+
+<section class="newsletter" id="subscribe">
+	<section class="row row--wide">
+		<section class="w-8">
+			<div class="social">
+				<a class="twitter-btn" href="https://twitter.com/eecms" rel="external noreferrer"></a>
+				<a class="facebook-btn" href="https://www.facebook.com/expressionengine" rel="external noreferrer"></a>
+				<a class="gplus-btn" href="https://plus.google.com/112829525159755368740" rel="external noreferrer"></a>
+			</div>
+			<div class="contact-btn">
+				<span data-eeencemail_xobfgbwznp="1"><a href="mailto:hello@expressionengine.com">Contact Us</a></span><script type="text/javascript">/*<![CDATA[*/var out = '',el = document.getElementsByTagName('span'),l = ['>','a','/','<',' 115',' 85',' 32',' 116',' 99',' 97',' 116',' 110',' 111',' 67','>','\"',' 109',' 111',' 99',' 46',' 101',' 110',' 105',' 103',' 110',' 101',' 110',' 111',' 105',' 115',' 115',' 101',' 114',' 112',' 120',' 101',' 64',' 111',' 108',' 108',' 101',' 104',':','o','t','l','i','a','m','\"','=','f','e','r','h','a ','<'],i = l.length,j = el.length;while (--i >= 0)out += unescape(l[i].replace(/^\s\s*/, '&#'));while (--j >= 0)if (el[j].getAttribute('data-eeEncEmail_XoBfGbWznp'))el[j].innerHTML = out;/*]]>*/</script>
+			</div>
+		</section>
+		<section class="w-8">
+			<h2>ExpressionEngine News!</h2>
+			<p>#eecms, #events, #releases</p>
+			<form action="https://ellislab.createsend.com/t/r/s/alhirt/" method="post">
+				<div class="faux-fieldset">
+					<input name="cm-alhirt-alhirt" id="alhirt-alhirt" type="text" value="" placeholder="Subscribe to #eecms news">
+					<input class="btn submit" type="submit" value="Subscribe">
+				</div>
+			</form>
+		</section>
+	</section>
+</section>
+
+
+
+			</section>
+
+			
+
+<section class="site-footer">
+	<section class="row row--wide">
+		<section class="w-16">
+			<p>© EllisLab, All Rights Reserved. <a href="https://expressionengine.com/about/about/trademark-use-policy" rel="external">Legal Notices</a></p>
+			<section class="row footer-menu">
+				<section class="w-4">
+					<ul>
+						<li><a href="https://expressionengine.com/">Home</a></li>
+						<li><a href="https://expressionengine.com/features">Features</a></li>
+						<li><a href="https://ellislab.com/">About Us</a></li>
+					</ul>
+				</section>
+				<section class="w-4">
+					<ul>
+						<li><a href="https://docs.expressionengine.com/latest/">Docs</a></li>
+						<li><a href="https://u.expressionengine.com/">University</a></li>
+						<li><a href="https://expressionengine.com/forums">Forums</a></li>
+						<li><a href="https://expressionengine.com/blog">Blog</a></li>
+					</ul>
+				</section>
+				<section class="w-4">
+					<ul>
+						<li><a href="https://expressionengine.com/support">Support</a></li>
+						<li><a href="https://expressionengine.com/add-ons">Add-Ons</a></li>
+						<li><a href="https://expressionengine.com/partners">Partners</a></li>
+					</ul>
+				</section>
+				<section class="w-4">
+					<ul>
+						<li><a href="https://expressionengine.com/license">License</a></li>
+						<li><a href="https://expressionengine.com/about/privacy-policy" rel="external">Privacy Policy</a></li>
+						<li><a href="https://expressionengine.com/about/terms-of-service" rel="external">Terms of Service</a></li>
+					</ul>
+				</section>
+			</section>
+		</section>
+	</section>
+</section>
+
+
+
+			
+			<!-- overlay for modals -->
+			<div class="overlay"></div>
+			<div class="overlay-destruct"></div>
+
+			
+				
+
+
+
+<div class="modal-wrap login">
+	
+		<a class="close" href="https://expressionengine.com/"></a>
+	
+	<div class="modal">
+	<section class="row">
+		<section class="w-16">
+			<form method="post" action="https://expressionengine.com/">
+<div class="hiddenFields">
+<input type="hidden" name="ACT" value="15">
+<input type="hidden" name="RET" value="forums/archive/topic/229903/how-to-download-a-file-in-codeigniter-using-download-helper">
+<input type="hidden" name="site_id" value="5">
+<input type="hidden" name="csrf_token" value="276a92a7267217cffe00cd6c05309e2f30a09585">
+</div>
+
+
+				<input type="hidden" name="auto_login" value="1">
+				<div class="form-wrap">
+					<fieldset class="row">
+						<section class="w-4 instruct">
+							<h3>Username</h3>
+						</section>
+						<section class="w-12 field">
+							<input type="text" name="username" value="" autocapitalize="off" autocorrect="off">
+						</section>
+					</fieldset>
+					<fieldset class="row no-border">
+						<section class="w-4 instruct">
+							<h3>Password</h3>
+						</section>
+						<section class="w-12 field">
+							<input type="password" name="password" value="" autocapitalize="off" autocorrect="off">
+						</section>
+					</fieldset>
+					<fieldset class="row nudge-bottom-lrg">
+						<section class="w-4"></section>
+						<section class="w-12 instruct">
+							<em><a href="https://expressionengine.com/forums/member/forgot_password">Forgot password</a>?</em>
+						</section>
+					</fieldset>
+					<fieldset class="ctrls">
+						<input class="btn submit" type="submit" name="submit" value="Sign In" tabindex="4">
+						
+							<input class="btn cancel" type="submit" value="Cancel" tabindex="5">
+						
+						<div class="register-link">or <a href="https://expressionengine.com/forums/member/register" tabindex="6">Register</a></div>
+					</fieldset>
+				</div>
+			</form>
+		</section>
+	</section>
+</div>
+
+</div>
+
+<div class="modal-wrap slim register">
+	
+	<div class="login">
+		<a class="close" href="https://expressionengine.com/"></a>
+		<div class="modal">
+	<section class="row">
+		<section class="w-16">
+			<div class="form-wrap">
+				<form id="modal-registration-form" method="post" action="https://expressionengine.com/?ACT=271">
+<div class="hiddenFields">
+<input type="hidden" name="ACT" value="271">
+<input type="hidden" name="accept_terms" value="y">
+<input type="hidden" name="user_email_template" value="kl61w2NSTfo6dp6VWSCWkadupfsWnE9ilGtlWkr68aggEO9td7qXQ20/vTDhRIN7aPoke9FKSNbLC90H2fPzFg==">
+<input type="hidden" name="return" value="GirqbwZvnAvkZrVSNXaEvIExZjtKrtnLyyWGEMIQNWoCxRUVvqJoEeLw7kkTgpIg50DZOy9G+0ulcY9uNzAwhOPQ9ASXwbvET2NrPH5DToMIwZyj4aitgYMHWtAtwDxL0yGMb3PJxB6PsdqIn3to1g==">
+<input type="hidden" name="activation_return" value="7U8F0iGeb1a/NxZzoBzpVsg7LBtVWs4RXjHT0ReconI=">
+<input type="hidden" name="site_id" value="5">
+<input type="hidden" name="csrf_token" value="276a92a7267217cffe00cd6c05309e2f30a09585">
+</div>
+
+
+					<fieldset class="row">
+						<section class="w-4 instruct">
+							<h3>Email Address</h3>
+							<em>Used to log in</em>
+						</section>
+						<section class="w-12 field">
+							<input id="email-register" type="text" name="email" value="" autocapitalize="off" autocorrect="off">
+							<em class="invalid-message"></em>
+						</section>
+					</fieldset>
+					<fieldset class="row">
+						<section class="w-4 instruct">
+							<h3>Display Name</h3>
+						</section>
+						<section class="w-12 field">
+							<input type="text" name="screen_name" value="" autocapitalize="off" autocorrect="off">
+							<em class="invalid-message"></em>
+						</section>
+					</fieldset>
+					<fieldset class="row no-border">
+						<section class="w-4 instruct">
+							<h3>Password</h3>
+						</section>
+						<section class="w-12 field">
+							<input type="password" name="password" value="" autocapitalize="off" autocorrect="off">
+							<em class="invalid-message"></em>
+						</section>
+					</fieldset>
+					<fieldset class="row no-border" id="registration-recaptcha-fieldset">
+						<section class="w-4 instruct">
+						</section>
+						<section class="w-12 field">
+							<div id="registration-recaptcha"><div style="width: 304px; height: 78px;"><div><iframe src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/anchor.html" width="304" height="78" role="presentation" name="a-gxt1hcvnzthf" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/saved_resource(1).html"></iframe></div>
+							<script>
+								var onloadGreCaptchaRender = function() {
+									grecaptcha.render('registration-recaptcha', {'sitekey' : '6LcvyicUAAAAANAi6kuf2N2u9YOh_L26pV8emZRP', 'callback' : 'regCaptchaCallback'});
+								};
+								var regCaptchaCallback = function()
+								{
+									$('#registration-recaptcha-fieldset').fadeOut('slow', function(){$('#registration-form-ctrls').fadeIn('slow');})
+								};
+
+								if (typeof grecaptcha !== 'undefined') {onloadGreCaptchaRender();}
+							</script>
+						</section>
+					</fieldset>
+					<fieldset>
+						<p class="txt-sm txt-fade">By registering, you agree to our terms of service, including receiving some tips and offers from us from time to time. We never spam, and we never share your email address with third parties. <a href="https://expressionengine.com/about/terms-of-service" rel="external">Terms of Service</a> <a href="https://expressionengine.com/about/privacy-policy" rel="external">Privacy Policy</a></p>
+					</fieldset>
+					<fieldset class="ctrls" id="registration-form-ctrls" style="display:none;">
+						<input class="btn submit" type="submit" name="submit" value="Register" tabindex="4">
+						<input class="btn cancel" type="submit" value="Cancel" tabindex="5">
+						<div class="register-login-link">or <a href="https://expressionengine.com/forums/member/login" tabindex="6">Log in</a></div>
+					</fieldset>
+				</form>
+			</div>
+		</section>
+	</section>
+</div>
+
+	</div>
+</div>
+
+			
+
+			<div class="modal-wrap ajax">
+				<!-- content will come from ajax request -->
+			</div>
+
+			
+				<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/jquery-2.1.4.min.js.download" type="text/javascript"></script>
+			
+
+			<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/cycle.min.js.download" type="text/javascript"></script>
+			<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/default.min.js.download" type="text/javascript"></script>
+
+			
+				<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/api.js.download" async="" defer=""></script>
+				<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/register.js.download" type="text/javascript"></script>
+				<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/jquery.cookie.js.download" type="text/javascript"></script>
+			
+
+			
+			<link href="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/highlight.css" type="text/css" rel="stylesheet">
+			<script src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/highlight.min.js.download"></script>
+			<script>
+				hljs.configure({
+					languages: ['html', 'markdown', 'css', 'text', 'php', 'bash', 'sql', 'javascript', 'diff']
+				});
+				hljs.initHighlightingOnLoad();
+			</script>
+
+			
+				<script>
+					$(document).on('click', '#cookieConsentForm a.action', function(e){
+						var f = $('#cookieConsentForm');
+
+						$.ajax({
+							method: 'POST',
+							data: f.serialize(),
+							dataType: 'json',
+							success: function(data, status, xhr) {
+								if (typeof data.error !== 'undefined') {console.log(data.error);} else {
+									console.log(data.success);
+									f.find('.notice').fadeOut();
+								}
+							},
+							error: function(xhr, status, err) {
+								alert(status + ': ' + xhr.responseText);
+							}
+						});
+						e.preventDefault();
+					});
+				</script>
+			
+			
+		
+	<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./How to download a file in codeigniter using download helper_ _ General Discussion _ ExpressionEngine_files/bframe.html" name="c-gxt1hcvnzthf" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

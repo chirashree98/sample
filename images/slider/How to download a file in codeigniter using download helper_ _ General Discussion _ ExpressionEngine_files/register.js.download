@@ -1,0 +1,91 @@
+$(function(){
+	$(document).on('click', '.register-link a', function(e){
+		$.cookie('exp_registration_return', window.location.pathname, { path: '/', secure: true });
+		$.ajax({
+			url: '/account/register-modal',
+			dataType: 'html',
+			success: function(data, status, xhr) {
+				if (typeof data.error !== 'undefined') {
+					console.log(data.error);
+				} else {
+					var modal = $(e.target).closest('.modal');
+					modal.replaceWith(data);
+				}
+			},
+			error: function(xhr, status, err) {
+				alert(status + ': ' + xhr.responseText);
+			}
+		});
+		e.preventDefault();
+	});
+
+	$(document).on('click', '.register-login-link a', function(e){
+		$.ajax({
+			url: '/account/login-modal',
+			dataType: 'html',
+			success: function(data, status, xhr) {
+				if (typeof data.error !== 'undefined') {
+					console.log(data.error);
+				} else {
+					var modal = $(e.target).closest('.modal');
+					modal.replaceWith(data);
+				}
+			},
+			error: function(xhr, status, err) {
+				alert(status + ': ' + xhr.responseText);
+			}
+		});
+		e.preventDefault();
+	});
+
+	$(document).on('submit', '#modal-registration-form', function(e){
+		$(e.target).find('input.submit').addClass('working').attr('disabled', true);
+		$(e.target).find('.invalid-message').each(function(idx){
+			$(this).empty();
+		})
+		$(e.target).find('fieldset').each(function(idx){
+			$(this).removeClass('invalid');
+		})
+		$.ajax({
+			url: $(e.target).attr('action'),
+			type: 'post',
+			dataType: 'json',
+			data: $(e.target).serialize(),
+			success: function(data, status, xhr) {
+				if (typeof data.error !== 'undefined') {
+					$.each(data.error, function(key, value){
+						var errors = '';
+						if (key == 0) {// reCAPTCHA error
+							alert('Cannot register at this time, please contact help@expressionengine.com for assistance.');
+						} else {
+							fieldset = $(e.target).find('input[name=' + key + ']').closest('fieldset');
+							fieldset.addClass('invalid');
+							$.each(value, function(idx, error_message){
+								errors += (errors) ? '<br>' + error_message : error_message;
+							})
+
+							fieldset.find('em.invalid-message').html(errors);
+						}
+
+						$(e.target).find('input.submit').removeClass('working').attr('disabled', false);
+					})
+				} else {
+					window.location.href = data.return;
+				}
+			},
+			error: function(xhr, status, err) {
+				alert(status + ': ' + xhr.responseText);
+			}
+		});
+		e.preventDefault();
+	});
+
+	var timer;
+	$(document).on('keyup blur', '#modal-registration-form input', function(e){
+		timer && clearTimeout(timer);
+		timer = setTimeout(function() {
+			$(e.target).closest('fieldset').removeClass('invalid');
+			$(e.target).closest('fieldset').find('.invalid-message').empty();
+		}, 300);
+	});
+})
