@@ -104,17 +104,7 @@ public function email_check($username){
 	$num= $query->num_rows();
 	return $num;
 }
-public function fetch($table,$cond,$where,$id,$cond2){
-	$this->db->select('*');
-	$this->db->from($table);
-	if(!empty($where))
-	$this->db->where($where,$cond);
-	$this->db->order_by($id,$cond2);
-	//$this->db->order_by($order,$condition);
-	$query = $this->db->get();
-	$query2['data'] =$query->result_array();
-	return $query2;
-}
+
 public function fetchs($table,$cond,$where){
 	$this->db->select('*');
 	$this->db->from($table);
