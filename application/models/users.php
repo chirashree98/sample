@@ -12,11 +12,10 @@ public function insert($data,$table) {
         }
 		
 		
-}
-	public function getproduct($postData=null){
+}public function getproduct($postData=null){
 	ini_set('display_errors', '0'); 
-	error_reporting(E_ALL);
-     	$response = array();
+	 error_reporting(E_ALL);
+     $response = array();
 
      ## Read value
      $draw = $postData['draw'];
@@ -36,15 +35,19 @@ public function insert($data,$table) {
 	 	
 	
      ## Total number of records without filtering
-     $this->db->select('count(*) as allcount');
+	 $this->db->select('count(*) as allcount');
+	 if($_SESSION['id']){
 	  $this->db->where('user_id',$_SESSION['id']);
+	 }
      $records = $this->db->get('product')->result();
      $totalRecords = $records[0]->allcount;
 	 	
      ## Total number of record with filtering
 	 $this->db->select('count(*) as allcount');  
 	 //$this->db->where('user_id',$user_id);
-	 $this->db->where('user_id',$_SESSION['id']);
+	 if($_SESSION['id']){
+		$this->db->where('user_id',$_SESSION['id']);
+	   }
      if($searchQuery != '')
 		
         $this->db->where($searchQuery);
@@ -57,7 +60,9 @@ public function insert($data,$table) {
         $this->db->where($searchQuery);
      $this->db->order_by($columnName, $columnSortOrder); //$this->db->where('user_id',$user_id);
 	 //$this->db->where('user_id',$user_id);
-	 $this->db->where('user_id',$_SESSION['id']);
+	 if($_SESSION['id']){
+		$this->db->where('user_id',$_SESSION['id']);
+	   }
 	$this->db->limit($rowperpage, $start);
      $records = $this->db->get('product')->result();
 
@@ -66,12 +71,12 @@ public function insert($data,$table) {
      foreach($records as $record ){
 
         $data[] = array( 
-	"id"=>$record->id,
+			"id"=>$record->id,
            "name"=>$record->name,
            "image"=>$record->image,
            "description"=>$record->description,
            "price"=>$record->price,
-	'user_id'=>$record->user_id
+			'user_id'=>$record->user_id
            
         ); 
      }
@@ -87,6 +92,8 @@ public function insert($data,$table) {
      return $response; 
    }
 
+
+	
 
 
 
