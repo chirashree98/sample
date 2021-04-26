@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>  
-           <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>  
+           <!-- Datatable CSS -->
+     <link href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+
+     <!-- jQuery Library -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     <!-- Datatable JS -->
+     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> 
 		   <style>
            body  
            {  
@@ -38,16 +42,16 @@
              
               <div>
               
-                <table id="user_data" class="table table-bordered table-striped">  <thead>  
-                          <tr>  
-                               
-                              <th width="5%">Product Name</th>
-                              
-<th width="5%">Product Description</th>
-							   <th width="5%">Product Price</th>
-							   <th width="5%">Product Image</th>
-                               <th width="5%">Edit</th>
-							   <th width="5%">Delete</th>
+                 <table id='empTable' class='display dataTable'>
+                         
+       <thead>
+         <tr>
+                              <th >Product Name</th>
+                              <th >Product Description</th>
+							   <th >Product Price</th>
+							   <th >Product Image</th>
+                               <th >Edit</th>
+							   <th >Delete</th>
 							    
                               
                           </tr>  
@@ -60,22 +64,28 @@
 
 <script>  
  $(document).ready(function(){  
-      $('#user_data').DataTable({  
-           "ajax"     :     "fetch_product_json",  
-           "columns"     :     [  
-                {     "data"     :     "name"  },  
+      $('#empTable').DataTable({  
+		  'processing': true,
+          'serverSide': true,
+          'serverMethod': 'post',
+           
+			  'ajax': {
+             'url':'<?=base_url()?>fetch_product_json'
+          },
+           'columns'     :     [  
+                {     data    :     'name' },  
                  
-                {     "data"     :     "description"} ,
-			    {     "data"     :     "price"} ,
+                {     data     :     'description'} ,
+			    {     data     :     'price'},
 			   {
-    "data": "image",
+    data: 'image',
     "render": function(data, type, row) {
         return '<img src="<?=base_url();?>images/'+data+'" style="height:100px;width:100px;" />';
     }
     },
 					
      {
-		 "data": "id",
+		 data: 'id',
 		 "render": function ( data, type, row ) {
                         return '<a href="<?=base_url();?>edit_product/'+data+'">Edit</a>';
 						
@@ -84,7 +94,7 @@
 			 
 	 
 		 {
-		 "data": "id",
+		 data: 'id',
 		 "render": function ( data, type, row ) {
                         return '<a href="<?=base_url();?>delete_product/'+data+'">Delete</a>';
 						
