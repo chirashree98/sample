@@ -296,16 +296,14 @@ $data['fetch'] =$this->users->fetchs('product',$id,'id');
 
 	}
 	public function fetch_product_json(){
-		$user_id = $this->session->all_userdata();
-		$id = $_SESSION['id'];
-		if($id){
-	
-		 $data['fetch3']= json_encode($this->users->fetch('product',$id,'user_id','id','desc'));
 		
-		$this->load->view('json/test_json',$data);
-		}
+			$postData = $this->input->post();
 
-	}
+		 $data= $this->users->getproduct($postData);
+		 echo json_encode($data);
+		
+		
+		}
 	
 	public function logouts () {
 	$this->session->set_userdata('username', '');
