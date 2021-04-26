@@ -15,7 +15,7 @@ public function insert($data,$table) {
 }
 	public function getproduct($postData=null){
 	ini_set('display_errors', '0'); 
-	 error_reporting(E_ALL);
+	error_reporting(E_ALL);
      	$response = array();
 
      ## Read value
@@ -71,7 +71,7 @@ public function insert($data,$table) {
            "image"=>$record->image,
            "description"=>$record->description,
            "price"=>$record->price,
-			'user_id'=>$record->user_id
+	'user_id'=>$record->user_id
            
         ); 
      }
